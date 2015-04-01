@@ -1,0 +1,31 @@
+from stack import Stack
+
+__author__ = 'Lawrence'
+
+
+def eval_postfix(postfix_exp):
+    operand_stack = Stack()
+    token_list = postfix_exp.split()
+    for token in token_list:
+        if token in "0123456789":
+            operand_stack.push(int(token))
+        else:
+            # token is an operator (+, -, * or /)
+            operand_2 = operand_stack.pop()
+            operand_1 = operand_stack.pop()
+            val = eval_arithmetic(token, operand_1, operand_2)
+            operand_stack.push(val)
+    if operand_stack.is_empty():
+        return None
+    else:
+        return operand_stack.pop()
+
+def eval_arithmetic(operator, operand_1, operand_2):
+    if operator == '+':
+        return operand_1 + operand_2
+    elif operator == '-':
+        return operand_1 - operand_2
+    elif operator == '*':
+        return operand_1 * operand_2
+    else:
+        return operand_1 / operand_2
