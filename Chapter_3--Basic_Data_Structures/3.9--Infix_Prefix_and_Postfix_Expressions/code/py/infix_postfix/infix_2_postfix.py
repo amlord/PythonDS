@@ -14,6 +14,7 @@ def infix_2_postfix(infix_exp):
     :return: The equivalent postfix expression compared to the infix one.
     """
     precedences = {}
+    precedences["^"] = 4
     precedences["*"] = 3
     precedences["/"] = 3
     precedences["+"] = 2
