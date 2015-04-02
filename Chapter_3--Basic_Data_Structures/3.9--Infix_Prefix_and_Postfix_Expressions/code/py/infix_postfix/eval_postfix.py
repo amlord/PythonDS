@@ -7,15 +7,19 @@ def eval_postfix(postfix_exp):
     operand_stack = Stack()
     token_list = postfix_exp.split()
     numeral = "0123456789"
+    operators = "^*/+-"
     for token in token_list:
         if token in numeral:
             operand_stack.push(int(token))
-        else:
+        elif token in operators:
             # token is an operator (+, -, *, / or ^)
             operand_2 = operand_stack.pop()
             operand_1 = operand_stack.pop()
             val = eval_arithmetic(token, operand_1, operand_2)
             operand_stack.push(val)
+        else:
+            print("eval_postfix: illegal operator, " + token)
+            raise(SyntaxError)
     if operand_stack.is_empty():
         return None
     else:
@@ -33,5 +37,5 @@ def eval_arithmetic(operator, operand_1, operand_2):
     elif operator == '^':
         return operand_1 ** operand_2
     else:
-        print("eval_arithmetic: illegal operator.")
-        raise SyntaxError
+        print("eval_arithmetic: illegal operator, " + operator)
+        raise(SyntaxError)

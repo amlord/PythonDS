@@ -14,3 +14,5 @@ class TestEval_postfix(TestCase):
             eval_postfix("9 9 + 3 2 ^ /"),
             2.0,
             "The value of postfix expression '9 9 + 3 2 ^ /' is not 2.0.")
+        with self.assertRaises(SyntaxError):
+            eval_postfix("9 9 + 3 2 ^ /##@@")
