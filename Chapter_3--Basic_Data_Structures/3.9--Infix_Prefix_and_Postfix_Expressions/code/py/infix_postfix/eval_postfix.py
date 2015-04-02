@@ -4,6 +4,15 @@ __author__ = 'Lawrence'
 
 
 def eval_postfix(postfix_exp):
+    """
+    Evaluate the value of an postfix expression.
+    :param postfix_exp: The postfix expression to be evaluated. Assume the
+                        postfix expression is a string of tokens delimited by
+                        spaces. The operator tokens are ^, *, /, + and -. The
+                        operand tokens are the single-character identifiers A,
+                        B, C, and so on.
+    :return: value of the postfix expression
+    """
     operand_stack = Stack()
     token_list = postfix_exp.split()
     numeral = "0123456789"
