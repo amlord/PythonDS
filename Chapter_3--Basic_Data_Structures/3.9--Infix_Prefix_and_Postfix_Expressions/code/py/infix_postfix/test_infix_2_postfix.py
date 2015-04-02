@@ -25,4 +25,5 @@ class TestInfix_2_postfix(TestCase):
             "A B C * +",
             "The postfix counterpart of infix expression " +
             "`A + B * C' is not `A B C * +'.")
-        print(infix_2_postfix("5 * 3 ^ ( 4 - 2 )"))
+        with self.assertRaises(SyntaxError):
+            infix_2_postfix("@5 * 3 ^ ( 4 - 2 )")

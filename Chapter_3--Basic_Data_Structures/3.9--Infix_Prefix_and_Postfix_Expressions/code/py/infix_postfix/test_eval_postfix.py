@@ -11,6 +11,6 @@ class TestEval_postfix(TestCase):
             None,
             "The value of postfix expression '' is not None.")
         self.assertEqual(
-            eval_postfix("7 8 + 3 2 + /"),
-            3.0,
-            "The value of postfix expression '7 8 + 3 2 + /' is not 3.0.")
+            eval_postfix("9 9 + 3 2 ^ /"),
+            2.0,
+            "The value of postfix expression '9 9 + 3 2 ^ /' is not 2.0.")
