@@ -1,5 +1,5 @@
 from unittest import TestCase
-from insertion_sort import insertionSort
+from insertionSort import insertionSort
 
 __author__ = 'Lawrence'
 
